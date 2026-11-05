@@ -1,0 +1,157 @@
+/**
+ * AQUAPURE - Premium Animated Floating Dot Particle & Water Bubble Background
+ * Ambient Water-Drop Atmosphere, Connected Dots, and Seamless Dark/Light Adaptation
+ */
+
+/* Fixed Full-Page Particle Canvas Layer */
+.bg-particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 1;
+  display: block;
+  transition: opacity 0.4s ease;
+}
+
+/* Ensure Page Structure Layers Safely Above Particle Canvas */
+body {
+  position: relative;
+  background-color: var(--bg-primary);
+}
+
+/* Content Stacking */
+main,
+.site-footer,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sticky Header - Pinned at Viewport Top Above All Canvas and Content Layers */
+.site-header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
+}
+
+/* Fixed Overlays, Drawers, Modals & Floating Buttons - STRICTLY OUT OF NORMAL FLOW */
+.mobile-drawer-overlay,
+.modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  inset-inline-start: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 2000 !important;
+}
+
+.cart-drawer-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 10000 !important;
+}
+
+.modal-overlay {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  padding: 2.5rem 1.25rem !important;
+  z-index: 10010 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.mobile-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  margin: 0 !important;
+  z-index: 2005 !important;
+}
+
+.cart-drawer {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  z-index: 10002 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+
+.modal-card {
+  position: relative !important;
+  margin-block: auto !important;
+  max-height: none !important;
+}
+
+.cart-drawer-body {
+  position: relative !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+.mobile-drawer-header {
+  position: relative;
+}
+
+.back-to-top {
+  position: fixed !important;
+  z-index: 990 !important;
+}
+
+/* Ensure Cards and Interactive Boxes Float Distinctly Above Floating Particles */
+.card,
+.product-card,
+.process-card,
+.hero-visual-card,
+.testimonial-card,
+.interactive-widget-box {
+  position: relative;
+  z-index: 2;
+}
+
+/* Light / Dark Subtle Ambient Lighting */
+[data-theme="light"] .bg-particles-canvas {
+  filter: contrast(102%);
+}
+
+[data-theme="dark"] .bg-particles-canvas {
+  filter: drop-shadow(0 0 6px rgba(36, 189, 232, 0.25));
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-particles-canvas {
+    opacity: 0.25 !important;
+  }
+}

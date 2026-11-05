@@ -1,0 +1,197 @@
+/**
+ * AQUAPURE - Premium Typography System
+ * Google Fonts: Outfit, Plus Jakarta Sans, Inter
+ * Fluid Responsive Scaling, Balanced Letter-Spacing & Aqua Gradient Highlights
+ */
+
+:root {
+  /* Font Family Definitions */
+  --font-heading: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-highlight: 'Outfit', sans-serif;
+
+  /* Typography Line Heights */
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.75;
+
+  /* Typography Letter Spacings */
+  --tracking-tighter: -0.035em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+  /* Aqua Gradient Highlight Tokens */
+  --aqua-gradient-primary: linear-gradient(135deg, #0077B6 0%, #00B4D8 35%, #48CAE4 68%, #0096C7 100%);
+  --aqua-gradient-glow: linear-gradient(135deg, #00B4D8 0%, #48CAE4 50%, #90E0EF 100%);
+  --aqua-gradient-dark: linear-gradient(135deg, #00B4D8 0%, #48CAE4 40%, #90E0EF 75%, #00B4D8 100%);
+}
+
+[data-theme="dark"] {
+  --aqua-gradient-primary: linear-gradient(135deg, #00B4D8 0%, #48CAE4 45%, #90E0EF 80%, #00B4D8 100%);
+}
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY BASE & HIERARCHY
+   ========================================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: var(--lh-normal);
+  color: var(--body-text);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: var(--font-heading);
+  color: var(--heading);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+/* ==========================================================================
+   RESPONSIVE FLUID TYPOGRAPHY via clamp()
+   ========================================================================== */
+
+/* Hero Heading */
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 4.2vw + 1rem, 4.25rem);
+  line-height: 1.12;
+  letter-spacing: var(--tracking-tighter);
+  font-weight: 800;
+  margin-bottom: 1.4rem;
+  opacity: 1;
+}
+
+/* Section Title */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 2.2vw + 0.8rem, 2.75rem);
+  line-height: 1.22;
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Section Subtitle / Lead Paragraph */
+.section-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 0.4vw + 0.9rem, 1.18rem);
+  line-height: var(--lh-relaxed);
+  color: var(--body-text);
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: 3rem;
+  text-wrap: pretty;
+}
+
+/* Hero Description */
+.hero-description {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.25rem);
+  line-height: var(--lh-relaxed);
+  color: var(--body-text);
+  margin-bottom: 2.2rem;
+  text-wrap: pretty;
+}
+
+/* Card Heading */
+.card-title,
+.product-title,
+.process-card h4 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 0.6vw + 0.95rem, 1.35rem);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+}
+
+/* Card Paragraphs */
+.card-desc,
+.product-description,
+.process-card p {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: var(--lh-normal);
+  color: var(--body-text);
+  text-wrap: pretty;
+}
+
+/* Section Badge Pill Typography */
+.badge-pill {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   AQUA GRADIENT HIGHLIGHTS & WATER SHIMMERS
+   ========================================================================== */
+
+.aqua-gradient,
+.hero-title .aqua-gradient,
+.hero-title span,
+.section-title span,
+.hero-highlight {
+  background: var(--aqua-gradient-primary);
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  animation: aquaTextFlow 6s ease-in-out infinite alternate;
+}
+
+.aqua-glow-text {
+  text-shadow: 0 0 25px rgba(0, 180, 216, 0.45);
+}
+
+@keyframes aquaTextFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* ==========================================================================
+   WORD-BY-WORD & CHARACTER ANIMATION SPANS
+   ========================================================================== */
+
+.word-reveal-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.hero-word {
+  display: inline-block;
+  opacity: 1;
+}
+
+@keyframes heroWordSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .hero-word,
+  .aqua-gradient,
+  .hero-highlight,
+  .section-title span {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

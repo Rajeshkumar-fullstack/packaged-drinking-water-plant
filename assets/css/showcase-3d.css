@@ -1,0 +1,1149 @@
+/**
+ * AQUAPURE - Advanced 3D Scroll Animation Engine
+ * Section 1: Complete Your Water Collection (3D Zigzag Camera Showcase)
+ * Section 2: Why Choose Our Water? (3D Interactive Orbital Experience)
+ */
+
+/* ==========================================================================
+   1. SHARED 3D STAGE & LUXURY ATMOSPHERE
+   ========================================================================== */
+
+:root {
+  --showcase-aqua: #12A9D6;
+  --showcase-cyan: #24BDE8;
+  --showcase-navy-deep: #0A192F;
+  --showcase-navy-surface: #102D46;
+  --showcase-soft-glow: #EAF8FC;
+  --showcase-gold-accent: #E2A03F;
+}
+
+/* Common Sticky Track Scaffolding */
+.section-showcase-3d,
+.section-orbit-3d {
+  position: relative;
+  background: radial-gradient(circle at 50% 30%, #0e2b45 0%, #071626 60%, #040d17 100%);
+  color: #FFFFFF;
+  overflow: clip;
+}
+
+[data-theme="light"] .section-showcase-3d,
+[data-theme="light"] .section-orbit-3d {
+  background: radial-gradient(circle at 50% 30%, #e3f4fa 0%, #ccebf5 55%, #b4e0ee 100%);
+  color: #0A192F;
+}
+
+.showcase-3d-sticky-container,
+.orbit-3d-sticky-container {
+  position: relative;
+  height: 200vh; /* Optimized, responsive scroll runway */
+}
+
+.showcase-3d-sticky-track,
+.orbit-3d-sticky-track {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 1.5rem 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Section Header Bar */
+.showcase-header,
+.orbit-header {
+  position: relative;
+  z-index: 30;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.showcase-header .badge-pill,
+.orbit-header .badge-pill {
+  pointer-events: auto;
+  margin-bottom: 0.6rem;
+  background: rgba(36, 189, 232, 0.15);
+  border: 1px solid rgba(36, 189, 232, 0.4);
+  color: #24BDE8;
+  backdrop-filter: blur(8px);
+}
+
+.showcase-header .section-title,
+.orbit-header .section-title {
+  color: #FFFFFF;
+  font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .showcase-header .section-title,
+[data-theme="light"] .orbit-header .section-title {
+  color: #0A192F;
+  text-shadow: none;
+}
+
+.showcase-header .section-subtitle,
+.orbit-header .section-subtitle {
+  color: rgba(234, 248, 252, 0.85);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+[data-theme="light"] .showcase-header .section-subtitle,
+[data-theme="light"] .orbit-header .section-subtitle {
+  color: #2d4a65;
+}
+
+/* ==========================================================================
+   2. SECTION 1: 3D WATER PRODUCT SHOWCASE ("Complete Your Water Collection")
+   ========================================================================== */
+
+.showcase-3d-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Ambient Spotlight */
+.showcase-ambient-spotlight {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.22) 0%, rgba(18, 169, 214, 0.08) 50%, transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+  animation: showcaseLightBreathe 6s ease-in-out infinite alternate;
+}
+
+@keyframes showcaseLightBreathe {
+  0% { opacity: 0.6; transform: translateX(-50%) scale(0.95); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1.08); }
+}
+
+/* Glossy Reflective Floor */
+.showcase-reflective-floor {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 38%;
+  background: linear-gradient(to top, rgba(10, 25, 47, 0.95) 0%, rgba(16, 45, 70, 0.6) 50%, transparent 100%);
+  border-top: 1px solid rgba(36, 189, 232, 0.25);
+  box-shadow: 0 -15px 35px rgba(18, 169, 214, 0.15);
+  pointer-events: none;
+  z-index: 2;
+}
+
+[data-theme="light"] .showcase-reflective-floor {
+  background: linear-gradient(to top, rgba(200, 235, 246, 0.9) 0%, rgba(220, 245, 252, 0.5) 50%, transparent 100%);
+  border-top: 1px solid rgba(18, 169, 214, 0.3);
+}
+
+/* 3D World Container */
+.showcase-3d-world {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Individual 3D Product Item */
+.showcase-3d-product {
+  position: absolute;
+  width: 320px;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  transform-style: preserve-3d;
+  transition: opacity 0.4s ease, filter 0.4s ease;
+  will-change: transform, opacity, filter;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* Product Image Frame */
+.showcase-product-visual {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.showcase-product-img {
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 25px rgba(8, 124, 167, 0.35));
+  transition: filter 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom center;
+}
+
+/* Product Base Reflection Mirror */
+.showcase-product-reflection {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
+  width: 85%;
+  height: 110px;
+  opacity: 0.22;
+  filter: blur(3px);
+  mask-image: linear-gradient(to top, black 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.showcase-product-reflection img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Active Focused Product Aura */
+.showcase-3d-product.is-active .showcase-product-img {
+  filter: drop-shadow(0 20px 35px rgba(8, 124, 167, 0.55))
+          drop-shadow(0 0 25px rgba(36, 189, 232, 0.45));
+  transform: scale(1.05);
+}
+
+.showcase-product-pedestal {
+  position: absolute;
+  bottom: 0;
+  width: 220px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(36, 189, 232, 0.4) 0%, rgba(18, 169, 214, 0.15) 50%, transparent 80%);
+  transform: rotateX(75deg);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.showcase-3d-product.is-active .showcase-product-pedestal {
+  background: radial-gradient(ellipse, rgba(36, 189, 232, 0.65) 0%, rgba(18, 169, 214, 0.3) 50%, transparent 85%);
+  transform: rotateX(75deg) scale(1.2);
+}
+
+/* Dynamic Product Information Glass Panel */
+.showcase-info-panel {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 3rem;
+  width: min(440px, calc(100vw - 6rem));
+  background: rgba(10, 25, 47, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(36, 189, 232, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 30px rgba(36, 189, 232, 0.15);
+  z-index: 25;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+}
+
+[data-theme="light"] .showcase-info-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(18, 169, 214, 0.35);
+  box-shadow: 0 15px 35px rgba(8, 124, 167, 0.15), 0 0 20px rgba(36, 189, 232, 0.12);
+}
+
+.showcase-info-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #24BDE8;
+  margin-bottom: 0.4rem;
+}
+
+[data-theme="light"] .showcase-info-badge {
+  color: #0077B6;
+}
+
+.showcase-info-title {
+  color: #FFFFFF;
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+[data-theme="light"] .showcase-info-title {
+  color: #0A192F;
+}
+
+.showcase-info-capacity {
+  font-size: 0.95rem;
+  color: #24BDE8;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+[data-theme="light"] .showcase-info-capacity {
+  color: #0077B6;
+}
+
+.showcase-info-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(234, 248, 252, 0.82);
+  margin-bottom: 0.75rem;
+}
+
+[data-theme="light"] .showcase-info-desc {
+  color: #334e68;
+}
+
+.showcase-info-packaging {
+  font-size: 0.85rem;
+  color: rgba(234, 248, 252, 0.7);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+[data-theme="light"] .showcase-info-packaging {
+  color: #486581;
+}
+
+.showcase-info-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Progress Stepper & Navigation on Right */
+.showcase-progress-wrap {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(36, 189, 232, 0.3);
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+  z-index: 25;
+}
+
+[data-theme="light"] .showcase-progress-wrap {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(18, 169, 214, 0.3);
+}
+
+.showcase-progress-bar {
+  width: 90px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+[data-theme="light"] .showcase-progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.showcase-progress-fill {
+  height: 100%;
+  width: 16.66%;
+  background: linear-gradient(90deg, #12A9D6, #24BDE8);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.showcase-stepper {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+[data-theme="light"] .showcase-stepper {
+  color: #0A192F;
+}
+
+.showcase-stepper #showcaseCurrentIdx {
+  color: #24BDE8;
+}
+
+.showcase-nav-arrows {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.showcase-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(36, 189, 232, 0.18);
+  border: 1px solid rgba(36, 189, 232, 0.4);
+  color: #24BDE8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.25s ease;
+}
+
+.showcase-arrow:hover {
+  background: #24BDE8;
+  color: #0A192F;
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   3. SECTION 2: 3D ORBIT EXPERIENCE ("Why Choose Our Water?")
+   ========================================================================== */
+
+.orbit-3d-stage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Giant Faint Outlined Background Watermark */
+.orbit-bg-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(4.5rem, 12vw, 11rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(36, 189, 232, 0.12);
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme="light"] .orbit-bg-watermark {
+  -webkit-text-stroke: 1.5px rgba(18, 169, 214, 0.18);
+}
+
+/* Ambient Radial Glow */
+.orbit-ambient-glow {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.2) 0%, rgba(18, 169, 214, 0.08) 50%, transparent 72%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* 3D Orbit World */
+.orbit-3d-world {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  will-change: transform;
+}
+
+/* Two Rotating Orbital Rings */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(36, 189, 232, 0.35);
+  box-shadow: 0 0 25px rgba(36, 189, 232, 0.15);
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+.orbit-ring.ring-1 {
+  width: 680px;
+  height: 680px;
+  transform: rotateX(72deg) rotateY(12deg);
+  animation: ringSpinClockwise 35s linear infinite;
+}
+
+.orbit-ring.ring-2 {
+  width: 580px;
+  height: 580px;
+  border-style: dotted;
+  border-color: rgba(18, 169, 214, 0.28);
+  transform: rotateX(65deg) rotateY(-18deg);
+  animation: ringSpinCounter 28s linear infinite;
+}
+
+@keyframes ringSpinClockwise {
+  from { transform: rotateX(72deg) rotateY(12deg) rotateZ(0deg); }
+  to { transform: rotateX(72deg) rotateY(12deg) rotateZ(360deg); }
+}
+
+@keyframes ringSpinCounter {
+  from { transform: rotateX(65deg) rotateY(-18deg) rotateZ(360deg); }
+  to { transform: rotateX(65deg) rotateY(-18deg) rotateZ(0deg); }
+}
+
+/* Central Floating Water Bottle */
+.orbit-center-object {
+  position: relative;
+  width: 220px;
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 15;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  animation: centerBottleFloat 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes centerBottleFloat {
+  0% { transform: translateY(-8px) rotateY(-5deg); }
+  100% { transform: translateY(8px) rotateY(5deg); }
+}
+
+.orbit-bottle-glow {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.45) 0%, rgba(18, 169, 214, 0.15) 60%, transparent 80%);
+  filter: blur(25px);
+  z-index: 1;
+}
+
+.orbit-center-bottle {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 35px rgba(8, 124, 167, 0.6))
+          drop-shadow(0 0 25px rgba(36, 189, 232, 0.5));
+}
+
+.orbit-bottle-reflection {
+  position: absolute;
+  bottom: -40px;
+  width: 160px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(36, 189, 232, 0.5) 0%, transparent 75%);
+  transform: rotateX(75deg);
+  z-index: 1;
+}
+
+/* Orbiting Benefit Cards (6 items) */
+.orbit-card {
+  position: absolute;
+  width: 270px;
+  background: rgba(10, 25, 47, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(36, 189, 232, 0.28);
+  border-radius: 18px;
+  padding: 1.3rem 1.4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 20px rgba(36, 189, 232, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.25s ease;
+  will-change: transform, opacity, filter;
+  pointer-events: auto;
+}
+
+[data-theme="light"] .orbit-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(18, 169, 214, 0.3);
+  box-shadow: 0 14px 35px rgba(8, 124, 167, 0.15), 0 0 18px rgba(36, 189, 232, 0.1);
+}
+
+.orbit-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.orbit-card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(36, 189, 232, 0.18);
+  border: 1px solid rgba(36, 189, 232, 0.4);
+  color: #24BDE8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.orbit-card-step-num {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: rgba(36, 189, 232, 0.85);
+  letter-spacing: 0.05em;
+}
+
+.orbit-card-title {
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+[data-theme="light"] .orbit-card-title {
+  color: #0A192F;
+}
+
+.orbit-card-desc {
+  font-size: 0.88rem;
+  color: rgba(234, 248, 252, 0.82);
+  line-height: 1.5;
+  margin: 0;
+}
+
+[data-theme="light"] .orbit-card-desc {
+  color: #334e68;
+}
+
+/* Active / Front Focused Orbit Card */
+.orbit-card.is-active {
+  border-color: rgba(36, 189, 232, 0.75);
+  box-shadow: 0 24px 55px rgba(8, 124, 167, 0.45), 0 0 32px rgba(36, 189, 232, 0.35);
+}
+
+.orbit-card.is-active .orbit-card-icon {
+  background: #24BDE8;
+  color: #0A192F;
+  box-shadow: 0 0 18px rgba(36, 189, 232, 0.6);
+}
+
+.orbit-card:hover {
+  border-color: rgba(36, 189, 232, 0.85);
+}
+
+/* Orbit Navigation Dots on Side */
+.orbit-nav-dots {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  z-index: 25;
+  background: rgba(10, 25, 47, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(36, 189, 232, 0.25);
+  padding: 0.9rem 0.6rem;
+  border-radius: 30px;
+}
+
+[data-theme="light"] .orbit-nav-dots {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(18, 169, 214, 0.3);
+}
+
+.orbit-dot {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+
+[data-theme="light"] .orbit-dot {
+  background: rgba(10, 25, 47, 0.25);
+}
+
+.orbit-dot:hover {
+  background: rgba(36, 189, 232, 0.7);
+  transform: scale(1.25);
+}
+
+.orbit-dot.active {
+  background: #24BDE8;
+  box-shadow: 0 0 12px #24BDE8;
+  transform: scale(1.35);
+}
+
+/* Tooltip on Dot Hover */
+.orbit-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(10, 25, 47, 0.92);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(36, 189, 232, 0.4);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+}
+
+.orbit-dot:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Floating Droplets/Particles */
+.showcase-particles,
+.orbit-particle-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.particle-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(36, 189, 232, 0.45);
+  box-shadow: 0 0 8px rgba(36, 189, 232, 0.6);
+  pointer-events: none;
+  animation: particleFloat 12s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translateY(100vh) scale(0.6); opacity: 0; }
+  15% { opacity: 0.75; }
+  85% { opacity: 0.75; }
+  100% { transform: translateY(-20vh) scale(1.2); opacity: 0; }
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================================================= */
+
+@media (max-width: 992px) {
+  .showcase-3d-sticky-container,
+  .orbit-3d-sticky-container {
+    height: 160vh;
+  }
+
+  .showcase-info-panel {
+    left: 1.5rem;
+    bottom: 1.5rem;
+    padding: 1.2rem 1.4rem;
+    width: min(380px, calc(100vw - 3rem));
+  }
+
+  .showcase-progress-wrap {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .orbit-ring.ring-1 {
+    width: 520px;
+    height: 520px;
+  }
+
+  .orbit-ring.ring-2 {
+    width: 440px;
+    height: 440px;
+  }
+
+  .orbit-center-object {
+    width: 170px;
+    height: 300px;
+  }
+
+  .orbit-card {
+    width: 230px;
+    padding: 1rem 1.1rem;
+  }
+
+  .orbit-card-title {
+    font-size: 1.05rem;
+  }
+
+  .orbit-card-desc {
+    font-size: 0.82rem;
+  }
+
+  .orbit-nav-dots {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase-3d-sticky-container,
+  .orbit-3d-sticky-container {
+    height: 180vh;
+  }
+
+  .showcase-3d-sticky-track {
+    height: 100vh;
+    height: 100dvh;
+    padding: 0.5rem 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .showcase-header .badge-pill {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.65rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .showcase-header .section-title {
+    font-size: clamp(1.25rem, 4.2vw, 1.65rem);
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .showcase-header .section-subtitle {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    max-width: 92%;
+    margin: 0 auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .showcase-3d-stage {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    overflow: hidden;
+    perspective: 850px;
+    perspective-origin: 50% 38%;
+  }
+
+  .showcase-3d-world {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    pointer-events: none;
+  }
+
+  .showcase-3d-product {
+    width: 175px;
+    height: 215px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+  }
+
+  .showcase-product-visual {
+    width: 100%;
+    height: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .showcase-product-img {
+    max-width: 90%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 18px rgba(8, 124, 167, 0.4));
+  }
+
+  .showcase-product-reflection {
+    display: none; /* Avoid visual clutter & clipping on touch screens */
+  }
+
+  .showcase-product-pedestal {
+    width: 140px;
+    height: 18px;
+  }
+
+  .showcase-info-panel {
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.5rem;
+    width: auto;
+    max-width: calc(100% - 1.5rem);
+    margin: 0 auto;
+    z-index: 35;
+    padding: 0.7rem 0.95rem;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
+
+  .showcase-info-badge {
+    font-size: 0.65rem;
+    padding: 0.12rem 0.45rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .showcase-info-title {
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+    line-height: 1.25;
+  }
+
+  .showcase-info-capacity {
+    font-size: 0.75rem;
+    margin-bottom: 0.2rem;
+    gap: 0.3rem;
+  }
+
+  .showcase-info-desc {
+    font-size: 0.75rem;
+    line-height: 1.35;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .showcase-info-packaging {
+    font-size: 0.7rem;
+    margin-bottom: 0.45rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .showcase-info-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .showcase-info-actions .btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.8rem;
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .showcase-progress-wrap {
+    display: none; /* Keep mobile viewport clean & spacious */
+  }
+
+  .orbit-ring.ring-1 {
+    width: 360px;
+    height: 360px;
+  }
+
+  .orbit-ring.ring-2 {
+    width: 300px;
+    height: 300px;
+  }
+
+  .orbit-center-object {
+    width: 130px;
+    height: 230px;
+  }
+
+  .orbit-card {
+    width: 200px;
+    padding: 0.85rem 0.95rem;
+    border-radius: 14px;
+  }
+
+  .orbit-card-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+  }
+
+  .orbit-card-title {
+    font-size: 0.95rem;
+  }
+
+  .orbit-card-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+  }
+
+  .orbit-nav-dots {
+    right: 0.5rem;
+    padding: 0.6rem 0.4rem;
+    gap: 0.6rem;
+  }
+
+  .orbit-dot {
+    width: 11px;
+    height: 11px;
+  }
+
+  .orbit-dot::after {
+    display: none; /* Hide hover tooltips on touch */
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-3d-sticky-container,
+  .orbit-3d-sticky-container {
+    height: 170vh;
+  }
+
+  .showcase-header .section-title,
+  .orbit-header .section-title {
+    font-size: 1.4rem;
+  }
+
+  .showcase-header .section-subtitle,
+  .orbit-header .section-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .showcase-3d-product {
+    width: 155px;
+    height: 195px;
+  }
+
+  .showcase-product-visual {
+    height: 175px;
+  }
+
+  .showcase-info-panel {
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.4rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .showcase-info-title {
+    font-size: 0.95rem;
+  }
+
+  .showcase-info-desc {
+    font-size: 0.72rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .showcase-info-actions .btn {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.75rem;
+  }
+
+  .orbit-card {
+    width: 175px;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .orbit-center-object {
+    width: 100px;
+    height: 180px;
+  }
+}
+
+/* Accessibility: Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .showcase-3d-sticky-container,
+  .orbit-3d-sticky-container {
+    height: auto !important;
+  }
+
+  .showcase-3d-sticky-track,
+  .orbit-3d-sticky-track {
+    position: relative !important;
+    height: auto !important;
+  }
+
+  .showcase-3d-world,
+  .orbit-3d-world {
+    transform: none !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    position: relative !important;
+  }
+
+  .showcase-3d-product,
+  .orbit-card {
+    position: relative !important;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .orbit-ring,
+  .orbit-ambient-glow,
+  .showcase-ambient-spotlight,
+  .particle-dot {
+    animation: none !important;
+  }
+}

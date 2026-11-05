@@ -1,0 +1,979 @@
+/**
+ * AQUAPURE - Premium Cinematic Hero Section System
+ * Cinematic Text Reveals, Glowing Aqua Image Containers, Ambient Water Physics & Responsive Precision
+ * Color Palette: #12A9D6 | #24BDE8 | #087CA7 | #EAF8FC | #102D46 | #0B192C
+ */
+
+/* ==========================================================================
+   1. HERO SECTION CONTAINER & AMBIENT WATER ATMOSPHERE
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 86vh;
+  display: flex;
+  align-items: center;
+  background: var(--hero-gradient, linear-gradient(165deg, #ECF8FD 0%, #F6FCFE 45%, #EAF7FC 100%));
+  overflow: hidden;
+  padding-block: 4rem 5.5rem;
+  z-index: 1;
+}
+
+[data-theme="dark"] .hero-section {
+  background: radial-gradient(ellipse 95% 75% at 50% 0%, rgba(18, 169, 214, 0.16) 0%, rgba(10, 25, 47, 0.98) 75%);
+}
+
+/* Ambient Radial Aqua Backlight Behind Hero */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -5%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.22) 0%, rgba(18, 169, 214, 0.08) 50%, transparent 75%);
+  pointer-events: none;
+  filter: blur(50px);
+  z-index: 0;
+  animation: heroAuraPulse 9s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .hero-section::before {
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.28) 0%, rgba(8, 124, 167, 0.14) 50%, transparent 75%);
+}
+
+/* Secondary Ambient Glow for Depth */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -8%;
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(18, 169, 214, 0.14) 0%, rgba(36, 189, 232, 0.05) 55%, transparent 75%);
+  pointer-events: none;
+  filter: blur(60px);
+  z-index: 0;
+  animation: heroSecondaryAura 11s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .hero-section::after {
+  background: radial-gradient(circle, rgba(8, 124, 167, 0.2) 0%, rgba(18, 169, 214, 0.08) 55%, transparent 75%);
+}
+
+@keyframes heroAuraPulse {
+  0% { transform: scale(0.92) translate3d(0, 0, 0); opacity: 0.7; }
+  50% { transform: scale(1.1) translate3d(-25px, 20px, 0); opacity: 1; }
+  100% { transform: scale(0.92) translate3d(0, 0, 0); opacity: 0.7; }
+}
+
+@keyframes heroSecondaryAura {
+  0% { transform: scale(1.05) translate3d(0, 0, 0); opacity: 0.6; }
+  50% { transform: scale(0.9) translate3d(20px, -15px, 0); opacity: 0.9; }
+  100% { transform: scale(1.05) translate3d(0, 0, 0); opacity: 0.6; }
+}
+
+/* Floating Ambient Water Droplets & Bubbles Container */
+.hero-droplets-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* 3D Specular Water Droplets */
+.droplet {
+  position: absolute;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), rgba(36, 189, 232, 0.5));
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  box-shadow: 0 6px 18px rgba(18, 169, 214, 0.28), inset 0 2px 5px rgba(255, 255, 255, 0.85);
+  filter: blur(0.2px);
+  will-change: transform;
+  animation: floatDropletPhysics 7s ease-in-out infinite alternate;
+}
+
+.droplet-1 { width: 48px; height: 58px; top: 12%; left: 6%; animation-duration: 8s; }
+.droplet-2 { width: 32px; height: 40px; top: 68%; left: 12%; animation-duration: 6s; animation-delay: 1.2s; }
+.droplet-3 { width: 56px; height: 68px; top: 18%; right: 7%; animation-duration: 9s; animation-delay: 2s; }
+.droplet-4 { width: 28px; height: 36px; top: 78%; right: 16%; animation-duration: 6.5s; animation-delay: 0.6s; }
+
+@keyframes floatDropletPhysics {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  50% { transform: translateY(-16px) rotate(3deg) scale(1.03); }
+  100% { transform: translateY(0px) rotate(0deg) scale(1); }
+}
+
+/* Floating Transparent Water Bubbles */
+.hero-bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.85) 0%, rgba(36, 189, 232, 0.3) 45%, rgba(18, 169, 214, 0.12) 70%, rgba(255, 255, 255, 0.45) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 4px 14px rgba(18, 169, 214, 0.22), inset 0 2px 5px rgba(255, 255, 255, 0.7);
+  will-change: transform;
+  animation: floatBubblePhysics 7.5s ease-in-out infinite alternate;
+}
+
+[data-theme="dark"] .hero-bubble {
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.75) 0%, rgba(36, 189, 232, 0.25) 45%, rgba(8, 124, 167, 0.18) 70%, rgba(255, 255, 255, 0.35) 100%);
+  border-color: rgba(94, 212, 243, 0.5);
+  box-shadow: 0 0 16px rgba(36, 189, 232, 0.3), inset 0 1px 4px rgba(255, 255, 255, 0.6);
+}
+
+.hero-bubble.bubble-1 { width: 34px; height: 34px; top: 16%; left: 24%; animation-duration: 8.5s; animation-delay: 0.4s; }
+.hero-bubble.bubble-2 { width: 20px; height: 20px; top: 74%; left: 36%; animation-duration: 6.8s; animation-delay: 1.6s; }
+.hero-bubble.bubble-3 { width: 42px; height: 42px; top: 32%; right: 26%; animation-duration: 9.5s; animation-delay: 1s; }
+.hero-bubble.bubble-4 { width: 26px; height: 26px; top: 82%; right: 10%; animation-duration: 7.2s; animation-delay: 2.2s; }
+.hero-bubble.bubble-5 { width: 16px; height: 16px; top: 28%; left: 42%; animation-duration: 6.2s; animation-delay: 3s; }
+
+@keyframes floatBubblePhysics {
+  0% { transform: translateY(0px) translateX(0px) scale(1); }
+  50% { transform: translateY(-18px) translateX(8px) scale(1.05); }
+  100% { transform: translateY(0px) translateX(0px) scale(1); }
+}
+
+/* Ambient Glowing Light Circles */
+.hero-glow-circle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(55px);
+  opacity: 0.45;
+  will-change: transform, opacity;
+  animation: heroGlowCircleBreathe 9s ease-in-out infinite alternate;
+}
+
+.hero-glow-circle.circle-1 {
+  width: 320px;
+  height: 320px;
+  top: 6%;
+  left: -60px;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.35) 0%, rgba(18, 169, 214, 0.1) 60%, transparent 80%);
+}
+
+.hero-glow-circle.circle-2 {
+  width: 400px;
+  height: 400px;
+  bottom: -40px;
+  right: 8%;
+  background: radial-gradient(circle, rgba(18, 169, 214, 0.28) 0%, rgba(8, 124, 167, 0.08) 60%, transparent 80%);
+  animation-delay: 3.5s;
+}
+
+@keyframes heroGlowCircleBreathe {
+  0% { transform: scale(0.92); opacity: 0.35; }
+  50% { transform: scale(1.08); opacity: 0.6; }
+  100% { transform: scale(0.92); opacity: 0.35; }
+}
+
+/* Subtle Water Ripple Waves */
+.hero-ripple {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(36, 189, 232, 0.24);
+  pointer-events: none;
+  transform: scale(0.5);
+  opacity: 0;
+  animation: rippleExpandWave 10s cubic-bezier(0.15, 0.8, 0.25, 1) infinite;
+}
+
+.hero-ripple.ripple-1 { width: 260px; height: 260px; top: 42%; right: 14%; animation-delay: 1.2s; }
+.hero-ripple.ripple-2 { width: 340px; height: 340px; top: 34%; right: 11%; animation-delay: 5s; }
+
+@keyframes rippleExpandWave {
+  0% { transform: scale(0.35); opacity: 0; }
+  25% { opacity: 0.65; }
+  80% { opacity: 0.12; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+/* ==========================================================================
+   2. HERO GRID & CINEMATIC TYPOGRAPHY
+   ========================================================================== */
+
+.hero-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+/* Breadcrumb in Hero (Subpages) */
+.hero-content .breadcrumb-nav {
+  margin-bottom: 0.9rem;
+}
+
+.hero-content .breadcrumb-list {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: var(--body-text, #64748B);
+}
+
+.hero-content .breadcrumb-list a {
+  color: var(--primary-blue, #12A9D6);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.hero-content .breadcrumb-list a:hover {
+  color: #087CA7;
+  text-decoration: underline;
+}
+
+.hero-content .breadcrumb-separator {
+  color: rgba(18, 169, 214, 0.5);
+  font-size: 0.75rem;
+}
+
+/* Small Badge Entrance */
+.hero-content .badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.45rem 1.15rem;
+  background: rgba(36, 189, 232, 0.12);
+  border: 1px solid rgba(18, 169, 214, 0.32);
+  color: #087CA7;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.35rem;
+  box-shadow: 0 2px 12px rgba(18, 169, 214, 0.16);
+  animation: heroPillSlideUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+[data-theme="dark"] .hero-content .badge-pill {
+  background: rgba(36, 189, 232, 0.18);
+  border-color: rgba(36, 189, 232, 0.45);
+  color: #5ED4F3;
+  box-shadow: 0 0 16px rgba(36, 189, 232, 0.25);
+}
+
+@keyframes heroPillSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Master Hero Heading */
+.hero-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.2rem, 4.2vw + 0.5rem, 4.1rem);
+  line-height: 1.18;
+  letter-spacing: -0.028em;
+  font-weight: 800;
+  color: #102D46;
+  margin-bottom: 1.35rem;
+  opacity: 1;
+  text-wrap: balance;
+  word-break: normal;
+  overflow-wrap: break-word;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: start;
+  animation: heroTitleEntrance 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both;
+  will-change: transform, opacity, filter;
+}
+
+[data-theme="dark"] .hero-title {
+  color: #F8FAFC;
+}
+
+@keyframes heroTitleEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* Fluid Aqua Gradient Highlight Text */
+.hero-title .aqua-gradient,
+.hero-title span.aqua-gradient,
+.aqua-gradient {
+  background: linear-gradient(135deg, #0077B6 0%, #12A9D6 28%, #24BDE8 52%, #087CA7 80%, #0077B6 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+  position: relative;
+  unicode-bidi: isolate;
+  animation: heroAquaGradientFlow 6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 14px rgba(36, 189, 232, 0.28));
+}
+
+[data-theme="dark"] .hero-title .aqua-gradient,
+[data-theme="dark"] .hero-title span.aqua-gradient,
+[data-theme="dark"] .aqua-gradient {
+  background: linear-gradient(135deg, #38BDF8 0%, #24BDE8 30%, #E0F2FE 55%, #12A9D6 80%, #38BDF8 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px rgba(36, 189, 232, 0.45));
+}
+
+@keyframes heroAquaGradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Hero Supporting Description with Staggered Entrance */
+.hero-description {
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 0.4vw + 0.95rem, 1.22rem);
+  line-height: 1.7;
+  color: var(--body-text, #4A5568);
+  margin-bottom: 2.2rem;
+  max-width: 580px;
+  text-wrap: pretty;
+  direction: ltr;
+  unicode-bidi: isolate;
+  text-align: start;
+  animation: heroDescFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
+}
+
+[data-theme="dark"] .hero-description {
+  color: #CBD5E1;
+}
+
+@keyframes heroDescFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+/* ==========================================================================
+   3. PREMIUM BUTTONS & CTA ACTIONS
+   ========================================================================== */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+}
+
+/* Primary CTA Slide-Up */
+.hero-actions .btn-primary {
+  background: linear-gradient(135deg, #087CA7 0%, #12A9D6 48%, #24BDE8 100%);
+  border: none;
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(18, 169, 214, 0.38);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  animation: heroCtaPrimarySlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+}
+
+@keyframes heroCtaPrimarySlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-actions .btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 32px rgba(18, 169, 214, 0.52), 0 0 22px rgba(36, 189, 232, 0.4);
+}
+
+.hero-actions .btn-primary:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.hero-actions .btn-primary i {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-actions .btn-primary:hover i {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .hero-actions .btn-primary:hover i {
+  transform: translateX(-4px);
+}
+
+/* Secondary CTA Slide-Up with Slight Delay */
+.hero-actions .btn-outline {
+  border: 1.5px solid rgba(18, 169, 214, 0.45);
+  color: var(--primary-blue, #12A9D6);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: heroCtaSecondarySlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both;
+}
+
+[data-theme="dark"] .hero-actions .btn-outline {
+  background: rgba(16, 45, 70, 0.65);
+  border-color: rgba(36, 189, 232, 0.45);
+  color: #5ED4F3;
+}
+
+@keyframes heroCtaSecondarySlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-actions .btn-outline:hover {
+  background: rgba(18, 169, 214, 0.12);
+  border-color: var(--primary-blue, #12A9D6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(18, 169, 214, 0.22);
+}
+
+.hero-actions .btn-outline:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+/* ==========================================================================
+   4. HERO FEATURE HIGHLIGHTS (REVEAL ONE BY ONE)
+   ========================================================================== */
+
+.hero-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  margin-top: 2.6rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(18, 169, 214, 0.18);
+}
+
+[data-theme="dark"] .hero-badges-row {
+  border-top-color: rgba(36, 189, 232, 0.18);
+}
+
+.hero-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.65rem 1rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(18, 169, 214, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(18, 169, 214, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  animation: heroBadgeReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+[data-theme="dark"] .hero-badge-item {
+  background: rgba(16, 45, 70, 0.6);
+  border-color: rgba(36, 189, 232, 0.28);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* Staggered Entrance Timing for 3 Badges */
+.hero-badge-item:nth-child(1) { animation-delay: 0.90s; }
+.hero-badge-item:nth-child(2) { animation-delay: 1.02s; }
+.hero-badge-item:nth-child(3) { animation-delay: 1.14s; }
+
+@keyframes heroBadgeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.hero-badge-item:hover {
+  transform: translateY(-3px);
+  border-color: rgba(36, 189, 232, 0.6);
+  box-shadow: 0 8px 22px rgba(18, 169, 214, 0.2);
+}
+
+.hero-badge-item i {
+  font-size: 1.35rem;
+  color: var(--primary-blue, #12A9D6);
+  background: rgba(36, 189, 232, 0.12);
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-badge-item:hover i {
+  transform: scale(1.1) rotate(5deg);
+}
+
+[dir="rtl"] .hero-badge-item:hover i {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.hero-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-badge-text strong {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #102D46;
+  line-height: 1.25;
+}
+
+[data-theme="dark"] .hero-badge-text strong {
+  color: #F8FAFC;
+}
+
+.hero-badge-text span {
+  font-size: 0.78rem;
+  color: var(--body-text, #64748B);
+  line-height: 1.3;
+}
+
+[data-theme="dark"] .hero-badge-text span {
+  color: #94A3B8;
+}
+
+/* ==========================================================================
+   5. CINEMATIC HERO IMAGE CONTAINER & GLOW AURA
+   ========================================================================== */
+
+.hero-visual {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-visual-card {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 16 / 10.5;
+  border: 2px solid rgba(36, 189, 232, 0.48);
+  box-shadow:
+    0 22px 55px -10px rgba(18, 169, 214, 0.34),
+    0 0 30px rgba(36, 189, 232, 0.24);
+  background: #FFFFFF;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+  animation: heroCardFloat 7s ease-in-out infinite alternate 1.4s;
+}
+
+[data-theme="dark"] .hero-visual-card {
+  background: #0B192C;
+  border-color: rgba(36, 189, 232, 0.55);
+  box-shadow:
+    0 26px 65px rgba(0, 0, 0, 0.65),
+    0 0 35px rgba(36, 189, 232, 0.35);
+}
+
+/* Subtle Continuous Floating Physics */
+@keyframes heroCardFloat {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.4deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Ambient Aqua Glow Aura Behind Image Container */
+.hero-visual-card::before {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 40px;
+  background: radial-gradient(circle, rgba(36, 189, 232, 0.38) 0%, rgba(18, 169, 214, 0.14) 60%, transparent 75%);
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(16px);
+  opacity: 0.85;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: heroCardAuraBreathe 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroCardAuraBreathe {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  50% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0.7; }
+}
+
+/* Moving Diagonal Light Sweep Reflection Across Image */
+.hero-visual-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(234, 248, 252, 0.25) 55%,
+    transparent 70%,
+    transparent 100%
+  );
+  transform: translateX(-150%) rotate(12deg);
+  pointer-events: none;
+  z-index: 3;
+  transition: transform 0.95s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-visual-card:hover::after {
+  transform: translateX(165%) rotate(12deg);
+}
+
+/* Hero Image Entrance Cinematic Zoom */
+.hero-visual-card .hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transform: scale(1);
+  will-change: transform, filter;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  animation: heroImgEntranceZoom 1.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroImgEntranceZoom {
+  from {
+    transform: scale(1.12);
+    opacity: 0.75;
+    filter: blur(4px);
+  }
+  to {
+    transform: scale(1.0);
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+/* Dedicated Styling for Transparent Product Studio Visuals (Cans, Bottles, Pouches) */
+.hero-visual-card.is-product {
+  aspect-ratio: 16 / 11;
+  background: radial-gradient(circle at 50% 45%, #FFFFFF 0%, rgba(235, 248, 252, 0.95) 55%, rgba(214, 242, 250, 0.9) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] .hero-visual-card.is-product {
+  background: radial-gradient(circle at 50% 45%, rgba(18, 169, 214, 0.22) 0%, rgba(16, 45, 70, 0.95) 70%, #0B192C 100%);
+}
+
+.hero-visual-card .hero-img.hero-img-product {
+  object-fit: contain;
+  padding: 1.8rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Hero Image Card Hover Enhancements */
+.hero-visual-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #24BDE8;
+  box-shadow:
+    0 30px 70px -10px rgba(18, 169, 214, 0.48),
+    0 0 42px rgba(36, 189, 232, 0.4);
+}
+
+.hero-visual-card:hover .hero-img {
+  transform: scale(1.06);
+}
+
+.hero-visual-card:hover .hero-img.hero-img-product {
+  transform: scale(1.08);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE MEDIA QUERIES (360px, 720px, 1024px+)
+   ========================================================================== */
+
+/* 1024px Laptop & Large Screens */
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 3.5rem;
+  }
+}
+
+/* 768px - 992px Tablet */
+@media (max-width: 992px) {
+  .hero-section {
+    padding-block: 3rem 4.5rem;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+    justify-items: center;
+  }
+
+  .hero-content {
+    max-width: 780px;
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-content .breadcrumb-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-content .breadcrumb-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+    padding: 0;
+  }
+
+  .hero-content .badge-pill {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-title {
+    text-align: center !important;
+    margin-inline: auto !important;
+    width: 100%;
+    max-width: 740px;
+  }
+
+  .hero-title span,
+  .hero-title .aqua-gradient,
+  .hero-title span.aqua-gradient {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .hero-description {
+    text-align: center !important;
+    margin-inline: auto !important;
+    max-width: 620px;
+    width: 100%;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .hero-badges-row {
+    display: flex;
+    justify-content: center !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    margin-top: 2.2rem;
+    padding-top: 1.5rem;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 760px;
+  }
+
+  .hero-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .hero-visual-card {
+    max-width: 520px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-visual-card .hero-img,
+  .hero-visual-card .hero-img.hero-img-product {
+    height: 100%;
+  }
+}
+
+/* 720px Tablet Precision */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: clamp(2rem, 5.2vw + 0.3rem, 2.75rem);
+    line-height: 1.2;
+    margin-bottom: 1.15rem;
+  }
+
+  .hero-visual-card {
+    max-width: 460px;
+    border-radius: 24px;
+  }
+
+  .hero-visual-card .hero-img,
+  .hero-visual-card .hero-img.hero-img-product {
+    height: 100%;
+  }
+
+  .hero-badge-item {
+    padding: 0.55rem 0.9rem;
+  }
+}
+
+/* 360px - 480px Mobile */
+@media (max-width: 480px) {
+  .hero-section {
+    padding-block: 2.2rem 3.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 7.8vw, 2.25rem);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-badges-row {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-badge-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .hero-visual-card {
+    max-width: 100%;
+    border-radius: 20px;
+    aspect-ratio: 16 / 11;
+  }
+
+  .hero-visual-card .hero-img {
+    height: 100%;
+    padding: 0;
+  }
+
+  .hero-visual-card.is-product .hero-img.hero-img-product {
+    height: 100%;
+    padding: 1.2rem;
+  }
+}
+
+/* ==========================================================================
+   7. REDUCED MOTION SAFEGUARDS (ACCESSIBILITY)
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content .badge-pill,
+  .hero-title,
+  .hero-description,
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline,
+  .hero-badge-item,
+  .hero-visual-card,
+  .hero-visual-card .hero-img,
+  .droplet,
+  .hero-bubble,
+  .hero-glow-circle,
+  .hero-ripple,
+  .hero-section::before,
+  .hero-section::after,
+  .hero-visual-card::before {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .hero-word-mask {
+    overflow: visible !important;
+    display: inline !important;
+  }
+
+  .hero-word {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    transition: none !important;
+    display: inline !important;
+  }
+
+  .hero-visual-card::after {
+    display: none !important;
+  }
+}

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 52" width="220" height="52" fill="none">
+  <defs>
+    <!-- Background Squircle Gradient -->
+    <linearGradient id="apFullBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00C2FF"/>
+      <stop offset="55%" stop-color="#0077B6"/>
+      <stop offset="100%" stop-color="#023E8A"/>
+    </linearGradient>
+    
+    <!-- Droplet Body Gradient -->
+    <linearGradient id="apFullDropBody" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+
+    <!-- Water Wave Gradient -->
+    <linearGradient id="apFullWaveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#00A8E8"/>
+      <stop offset="100%" stop-color="#0077B6"/>
+    </linearGradient>
+
+    <!-- Pure Water Bevel Highlight -->
+    <linearGradient id="apFullBevel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.08"/>
+    </linearGradient>
+    
+    <!-- Light Sweep Diagonal Gradient -->
+    <linearGradient id="apFullSweepGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="40%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#E0F2FE" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Shadow Filter -->
+    <filter id="apFullDropShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#023E8A" flood-opacity="0.3"/>
+    </filter>
+
+    <clipPath id="apFullSquircleClip">
+      <rect x="0" y="0" width="44" height="44" rx="13"/>
+    </clipPath>
+
+    <style>
+      /* <![CDATA[ */
+      @keyframes apFullWaveFlow {
+        0% { transform: translateY(0px) scaleY(1); }
+        50% { transform: translateY(-0.75px) scaleY(1.025); }
+        100% { transform: translateY(0px) scaleY(1); }
+      }
+      .ap-full-wave {
+        animation: apFullWaveFlow 3.2s ease-in-out infinite;
+        transform-origin: 22px 34px;
+      }
+
+      @keyframes apFullDropletBreathe {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.015); }
+        100% { transform: scale(1); }
+      }
+      .ap-full-droplet {
+        animation: apFullDropletBreathe 4s ease-in-out infinite;
+        transform-origin: 22px 28px;
+      }
+
+      @keyframes apFullSparkleTwinkle {
+        0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.85; }
+        40% { transform: scale(1.35) rotate(18deg); opacity: 1; }
+        70% { transform: scale(0.9) rotate(-8deg); opacity: 0.7; }
+      }
+      .ap-full-sparkle {
+        animation: apFullSparkleTwinkle 3.5s ease-in-out infinite;
+        transform-origin: 27.5px 14px;
+      }
+
+      @keyframes apFullOrbitalFlow {
+        0% { stroke-dashoffset: 0; opacity: 0.35; }
+        50% { opacity: 0.75; }
+        100% { stroke-dashoffset: -22; opacity: 0.35; }
+      }
+      .ap-full-orbital {
+        animation: apFullOrbitalFlow 7s linear infinite;
+      }
+
+      @keyframes apFullSweepPass {
+        0% { transform: translateX(-55px) rotate(25deg); }
+        25%, 100% { transform: translateX(75px) rotate(25deg); }
+      }
+      .ap-full-sweep {
+        animation: apFullSweepPass 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        animation-delay: 1.2s;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ap-full-wave, .ap-full-droplet, .ap-full-sparkle, .ap-full-orbital, .ap-full-sweep {
+          animation: none !important;
+        }
+      }
+      /* ]]> */
+    </style>
+  </defs>
+
+  <!-- EMBLEM (X: 2 to 46, Y: 4 to 48) -->
+  <g transform="translate(2, 4)">
+    <!-- Container Squircle with Soft Glow -->
+    <rect x="0" y="0" width="44" height="44" rx="13" fill="url(#apFullBgGrad)"/>
+    <rect x="0.75" y="0.75" width="42.5" height="42.5" rx="12.25" stroke="url(#apFullBevel)" stroke-width="1.5"/>
+
+    <!-- Orbital Purity Wave Ring -->
+    <path class="ap-full-orbital" d="M7 26.5 A15 15 0 0 0 37 26.5" stroke="#FFFFFF" stroke-width="1.75" stroke-linecap="round" stroke-dasharray="2 3.5" opacity="0.45"/>
+
+    <!-- Central Water Droplet -->
+    <g filter="url(#apFullDropShadow)" class="ap-full-droplet">
+      <path d="M22 6.5 C22 6.5 33.5 20 33.5 27.5 C33.5 33.85 28.35 39 22 39 C15.65 39 10.5 33.85 10.5 27.5 C10.5 20 22 6.5 22 6.5 Z" fill="url(#apFullDropBody)"/>
+    </g>
+
+    <!-- Dynamic Mineral Wave Swirl Inside Droplet -->
+    <path class="ap-full-wave" d="M11.2 28.5 C14.5 25.5 18.2 25.8 22 28 C25.8 30.2 29.5 29.8 32.8 27 C32.2 33.5 27.8 38.5 22 38.5 C16.2 38.5 11.8 33.5 11.2 28.5 Z" fill="url(#apFullWaveGrad)"/>
+
+    <!-- Specular Reflection Arc -->
+    <path d="M15.5 18 C13.8 21.5 13.6 25.5 14.8 29" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.95"/>
+
+    <!-- Pristine Diamond Sparkle Glint -->
+    <path class="ap-full-sparkle" d="M27.5 11 L28.2 13.2 L30.5 14 L28.2 14.8 L27.5 17 L26.8 14.8 L24.5 14 L26.8 13.2 Z" fill="#FFFFFF"/>
+
+    <!-- Diagonal Light Sweep Sheen Across Squircle Surface -->
+    <g clip-path="url(#apFullSquircleClip)" pointer-events="none">
+      <rect class="ap-full-sweep" x="-35" y="-15" width="22" height="75" fill="url(#apFullSweepGrad)" transform="rotate(25 22 22)"/>
+    </g>
+  </g>
+
+  <!-- BRAND TYPOGRAPHY -->
+  <g transform="translate(56, 12)">
+    <!-- Primary Brand Name "AQUA PURE" -->
+    <text x="0" y="20" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#0A2540" letter-spacing="-0.02em">
+      AQUA<tspan fill="#0077B6">PURE</tspan>
+    </text>
+    
+    <!-- Tagline "PACKAGED DRINKING WATER" -->
+    <text x="0.5" y="31.5" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="6.8" font-weight="700" fill="#4B6B82" letter-spacing="0.12em">
+      PACKAGED DRINKING WATER
+    </text>
+  </g>
+</svg>

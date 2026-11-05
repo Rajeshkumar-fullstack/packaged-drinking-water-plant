@@ -1,0 +1,376 @@
+/* ==========================================================================
+   AQUAPURE - THEMES & DESIGN TOKENS
+   Supports Light & Dark Modes + RTL/LTR Directional Logic
+   ========================================================================== */
+
+:root {
+  /* LIGHT MODE (Default) */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #EAF8FC;
+  --primary-blue: #12A9D6;
+  --deep-blue: #087CA7;
+  --heading: #102D46;
+  --body-text: #526778;
+  --card-bg: #FFFFFF;
+  --border-color: #DCEBF1;
+  
+  /* Accent & Gradients */
+  --accent-light: rgba(18, 169, 214, 0.12);
+  --accent-gradient: linear-gradient(135deg, #12A9D6 0%, #087CA7 100%);
+  --hero-gradient: linear-gradient(180deg, rgba(234, 248, 252, 0.85) 0%, rgba(255, 255, 255, 0.98) 100%);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.92);
+  --nav-border-scrolled: rgba(220, 235, 241, 0.8);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(220, 235, 241, 0.6);
+  --pill-bg: #EAF8FC;
+  --pill-text: #087CA7;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(16, 45, 70, 0.04);
+  --shadow-md: 0 8px 24px rgba(16, 45, 70, 0.07);
+  --shadow-lg: 0 16px 36px rgba(8, 124, 167, 0.12);
+  --shadow-hover: 0 20px 40px rgba(18, 169, 214, 0.18);
+  --glow-color: rgba(18, 169, 214, 0.35);
+
+  /* Feedback Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #0ea5e9;
+
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Transitions */
+  --theme-transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* DARK MODE OVERRIDES */
+[data-theme="dark"] {
+  --bg-primary: #081824;
+  --bg-secondary: #102B3B;
+  --primary-blue: #24BDE8;
+  --deep-blue: #12A9D6;
+  --heading: #D9F3FC;
+  --body-text: #A9C4D2;
+  --card-bg: #123244;
+  --border-color: #254B60;
+
+  /* Accent & Gradients */
+  --accent-light: rgba(36, 189, 232, 0.15);
+  --accent-gradient: linear-gradient(135deg, #24BDE8 0%, #12A9D6 100%);
+  --hero-gradient: linear-gradient(180deg, rgba(16, 43, 59, 0.9) 0%, rgba(8, 24, 36, 0.98) 100%);
+  --nav-bg-scrolled: rgba(8, 24, 36, 0.92);
+  --nav-border-scrolled: rgba(37, 75, 96, 0.8);
+  --glass-bg: rgba(18, 50, 68, 0.75);
+  --glass-border: rgba(37, 75, 96, 0.6);
+  --pill-bg: #102B3B;
+  --pill-text: #24BDE8;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.55);
+  --shadow-hover: 0 20px 40px rgba(36, 189, 232, 0.2);
+  --glow-color: rgba(36, 189, 232, 0.35);
+}
+
+/* Global Theme Transition on Root Elements */
+html, body, header, nav, footer, .card, .stat-card, .process-card, .dropdown-menu, .modal-content, input, select, textarea {
+  transition: var(--theme-transition);
+}
+
+/* RTL Specific Rules */
+[dir="ltr"] {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+
+[dir="ltr"] .process-card,
+[dir="ltr"] .process-card h4,
+[dir="ltr"] .process-card p,
+[dir="ltr"] .process-number {
+  text-align: left;
+  direction: ltr;
+}
+
+[dir="ltr"] .card,
+[dir="ltr"] .card-title,
+[dir="ltr"] .card-desc {
+  text-align: left;
+  direction: ltr;
+}
+
+[dir="ltr"] .testimonial-card,
+[dir="ltr"] .testimonial-text,
+[dir="ltr"] .author-info,
+[dir="ltr"] .author-info strong,
+[dir="ltr"] .author-info span {
+  text-align: left;
+  direction: ltr;
+}
+
+[dir="ltr"] .quote-icon {
+  transform: none;
+  text-align: left;
+}
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Process Cards Text Alignment in RTL */
+[dir="rtl"] .process-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .process-card h4,
+[dir="rtl"] .process-card p,
+[dir="rtl"] .process-number {
+  text-align: right;
+  direction: rtl;
+}
+
+/* General Feature Cards */
+[dir="rtl"] .card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .card-title,
+[dir="rtl"] .card-desc {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .card-icon {
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+}
+
+/* Product Cards */
+[dir="rtl"] .product-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .product-title,
+[dir="rtl"] .product-description,
+[dir="rtl"] .product-body {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .product-badge {
+  left: auto;
+  right: 1rem;
+}
+
+[dir="rtl"] .product-capacity-badge {
+  right: auto;
+  left: 1rem;
+}
+
+[dir="rtl"] .product-specs {
+  direction: rtl;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .spec-chip {
+  direction: rtl;
+}
+
+[dir="rtl"] .product-footer {
+  direction: rtl;
+}
+
+[dir="rtl"] .product-feature-list {
+  padding-inline-start: 0;
+  padding-right: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .product-feature-list li {
+  text-align: right;
+  direction: rtl;
+  justify-content: flex-start;
+}
+
+/* Stat Cards */
+[dir="rtl"] .stat-card {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .stat-number,
+[dir="rtl"] .stat-label {
+  text-align: right;
+}
+
+/* Hero Section in RTL */
+[dir="rtl"] .hero-content {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-subtitle,
+[dir="rtl"] .hero-desc,
+[dir="rtl"] .hero-description {
+  text-align: right !important;
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: block;
+}
+
+[dir="rtl"] .hero-title span,
+[dir="rtl"] .hero-title .aqua-gradient {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline;
+}
+
+[dir="rtl"] .hero-buttons,
+[dir="rtl"] .hero-actions {
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+/* Centered Section Titles Stay Centered */
+[dir="rtl"] .section-title-wrap {
+  text-align: center;
+}
+
+[dir="rtl"] .section-title-wrap .section-title,
+[dir="rtl"] .section-title-wrap .section-subtitle,
+[dir="rtl"] .section-title-wrap .badge-pill {
+  text-align: center;
+}
+
+/* Dropdown & Navigation */
+[dir="rtl"] .dropdown-menu {
+  text-align: right;
+}
+
+/* Footer Alignment */
+[dir="rtl"] .footer-col {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .footer-col h4,
+[dir="rtl"] .footer-links,
+[dir="rtl"] .footer-contact {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links a {
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .footer-contact li {
+  justify-content: flex-start;
+  text-align: right;
+}
+
+/* Testimonial Cards in RTL */
+[dir="rtl"] .testimonial-card {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .testimonial-text {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .quote-icon {
+  display: inline-block;
+  transform: scaleX(-1);
+  text-align: right;
+}
+
+[dir="rtl"] .testimonial-author {
+  direction: rtl;
+}
+
+[dir="rtl"] .author-info {
+  text-align: right;
+}
+
+[dir="rtl"] .author-info strong,
+[dir="rtl"] .author-info span {
+  text-align: right;
+  direction: rtl;
+}
+
+/* FAQs */
+[dir="rtl"] .faq-question,
+[dir="rtl"] .faq-answer {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Form Controls & Tables */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] table th,
+[dir="rtl"] table td {
+  text-align: right;
+}
+
+/* Buttons & Directional Icons */
+[dir="rtl"] .btn {
+  direction: rtl;
+}
+
+[dir="rtl"] .bi-arrow-right::before {
+  content: "\f12f"; /* bi-arrow-left */
+}
+
+[dir="rtl"] .bi-chevron-right::before {
+  content: "\f284"; /* bi-chevron-left */
+}
+
+/* Cart Drawer in RTL */
+[dir="rtl"] .cart-drawer {
+  right: auto;
+  left: 0;
+  border-left: none;
+  border-right: 1px solid var(--border-color);
+  transform: translateX(-100%);
+}
+
+[dir="rtl"] .cart-item {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .cart-item-name,
+[dir="rtl"] .cart-item-price,
+[dir="rtl"] .cart-item-subtotal {
+  text-align: right;
+}
+
+[dir="rtl"] .cart-toast {
+  right: auto;
+  left: 2rem;
+}
