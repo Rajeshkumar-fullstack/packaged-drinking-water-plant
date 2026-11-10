@@ -229,7 +229,7 @@
 
   .stats-strip {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.25rem 0;
   }
 
   .stat-item:nth-child(2)::after {

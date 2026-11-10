@@ -86,6 +86,30 @@
       unit: 'Can',
       img: 'assets/images/can-20l-commercial.jpg',
       alt: '20-litre commercial polycarbonate water dispenser can'
+    },
+    {
+      id: 'can-20l-dispenser',
+      name: '20L Countertop Dispenser Can',
+      badge: 'Home & Pantry Dispenser',
+      capacity: '20 Litres (20.0L)',
+      desc: 'Smart upright countertop jar fitted with food-grade push-button bottom faucet, enabling easy gravity pour without heavy inverted dispenser loading.',
+      packaging: 'BPA-Free Food-Grade PET • Integrated Quick-Flow Tap • Built-in Ergonomic Handle',
+      price: 110,
+      unit: 'Can',
+      img: 'assets/images/pet-20l-dispenser-jar.png',
+      alt: '20 Litre Countertop Water Dispenser Can with Tap'
+    },
+    {
+      id: 'pouch-200ml',
+      name: '200ml Sanitary Water Pouch',
+      badge: 'Mass Events & Community Hydration',
+      capacity: '200ml (0.2L)',
+      desc: 'Hermetically heat-sealed multi-layer food-grade pouch designed for sports marathons, religious gatherings, relief camps, and high-volume catering.',
+      packaging: 'Crate of 50 Pouches • Food-Contact Multi-Layer Polymer • Tamper-Proof Hermetic Seal',
+      price: 100,
+      unit: 'Crate',
+      img: 'assets/images/water-pouch-200ml.jpg',
+      alt: '200ml hermetically sealed drinking water pouch'
     }
   ];
 

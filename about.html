@@ -57,7 +57,7 @@
 
   <!-- Custom Stylesheets -->
   <link rel="stylesheet" href="assets/css/themes.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=4.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.8">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/hero-animations.css?v=2.5">
@@ -149,6 +149,7 @@
             <a href="products.html" class="nav-link">Products</a>
           </li>
           <li class="nav-item"><a href="quality-reports.html" class="nav-link">Quality Reports</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
@@ -157,7 +158,6 @@
       <div class="nav-actions">
                         <!-- RTL Direction Toggle Button -->
         <button type="button" class="rtl-toggle-btn" aria-label="Toggle Direction: Right to Left (RTL)" title="Right to Left (RTL)">
-          <i class="bi bi-text-right dir-icon"></i>
           <span class="dir-label">RTL</span>
         </button>
 
@@ -208,6 +208,7 @@
       <li><a href="about.html" class="mobile-nav-link active">About Us</a></li>
       <li><a href="products.html" class="mobile-nav-link">Products</a></li>
       <li><a href="quality-reports.html" class="mobile-nav-link">Quality Reports</a></li>
+      <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
     </ul>
 
@@ -370,11 +371,11 @@
       <div class="container">
         <div class="stats-strip reveal-up">
           <div class="stat-item">
-            <div class="stat-number" data-count="10" data-suffix="+ Years">0+ Years</div>
+            <div class="stat-number" data-count="10" data-suffix="+ Years">0<span class="stat-unit">+ Years</span></div>
             <div class="stat-label">Pioneering Safe Hydration</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="250000" data-suffix=" LPD">0 LPD</div>
+            <div class="stat-number" data-count="250000" data-suffix=" LPD">0<span class="stat-unit">LPD</span></div>
             <div class="stat-label">Purified Water Production Capacity</div>
           </div>
           <div class="stat-item">
@@ -558,7 +559,7 @@
               <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" 
                    alt="Siddharth Patel - Lead Procurement Auditor" 
                    class="author-avatar" 
-                   loading="lazy" decoding="async">
+                   loading="lazy" decoding="async">               
               <div class="author-info">
                 <strong>Siddharth Patel</strong>
                 <span>Lead Procurement Auditor, Apex Hospital Network</span>
@@ -592,9 +593,12 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom:1.2rem;">
-            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="36" height="36" style="width:36px; height:36px;" decoding="async">
-            <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+          <a href="index.html" class="brand-logo" aria-label="AquaPure Home" style="margin-bottom:1.2rem;">
+            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="40" height="40" style="width:40px; height:40px;" decoding="async">
+            <div class="brand-text">
+              <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+              <span class="brand-tagline">PACKAGED DRINKING WATER</span>
+            </div>
           </a>
           <p style="font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">
             Dedicated to providing safe, hygienic, and mineral-balanced packaged drinking water across all household and institutional sectors.
@@ -615,6 +619,7 @@
             <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Our Heritage</a></li>
             <li><a href="products.html"><i class="bi bi-chevron-right"></i> Products Catalogue</a></li>
             <li><a href="quality-reports.html"><i class="bi bi-chevron-right"></i> Quality Reports</a></li>
+            <li><a href="blog.html"><i class="bi bi-chevron-right"></i> Blog &amp; Insights</a></li>
             <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
           </ul>
         </div>
@@ -708,7 +713,7 @@
   <!-- Scripts -->
   <script src="assets/js/theme.js?v=2.0"></script>
   <script src="assets/js/scroll-effects.js"></script>
-  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/animations.js?v=4.8"></script>
   <script src="assets/js/main.js?v=3.9"></script>
 <script src="assets/js/cart.js"></script>
   <script src="assets/js/hero-animations.js" defer></script>

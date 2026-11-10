@@ -358,6 +358,101 @@
           { label: 'Master Packaging', val: '25 Pouches per Heavy Outer Bag (12.5 kg total)' },
           { label: 'Ideal Use', val: 'Workforce Camps, Highway Catering, Relief Reserves' }
         ]
+      },
+      'can-20l-dispenser': {
+        id: 'can-20l-dispenser',
+        title: '20L Countertop Dispenser Can with Bottom Tap',
+        badge: 'Built-In Tap • No Cooler Needed',
+        category: 'Water Cans • Self-Dispensing Series',
+        capacity: '20 Litres',
+        price: '₹120',
+        numericPrice: 120,
+        unit: 'Can',
+        img: 'assets/images/pet-20l-dispenser-jar.png',
+        desc: 'Self-contained dispensing can equipped with a food-grade precision push-tap. Stands upright on any kitchen counter, table, or pantry shelf—no heavy inverted lifting or electric water cooler required.',
+        dedicatedUrl: 'water-cans.html#can20LDispenser',
+        specs: [
+          { label: 'Dispenser Mechanism', val: 'Precision Push-Lever Food-Grade Silicone Tap' },
+          { label: 'Vent Valve', val: 'Top Air-Release Plug to Prevent Flow Vacuum Locking' },
+          { label: 'Material', val: 'Heavy-Gauge Food-Grade Virgin Polymer' },
+          { label: 'Ideal For', val: 'Apartments, Clinics, Executive Desks, Pantry Slabs' }
+        ]
+      },
+      'can-20l-polycarbonate': {
+        id: 'can-20l-polycarbonate',
+        title: '20L Heavy-Duty Polycarbonate Bubble-Top Can',
+        badge: 'Industrial Grade • 60+ Trips',
+        category: 'Water Cans • Corporate Fleet Series',
+        capacity: '20 Litres',
+        price: '₹110',
+        numericPrice: 110,
+        unit: 'Can',
+        img: 'assets/images/polycarbonate-20l-bubbletop.png',
+        desc: 'Engineered from shatterproof, impact-resistant virgin polycarbonate (PC). Built for rigorous daily rotation across corporate campuses, IT parks, factories, and schools with 60+ wash-and-refill lifecycles.',
+        dedicatedUrl: 'water-cans.html#can20LPolycarbonate',
+        specs: [
+          { label: 'Wall Thickness', val: 'Ultra-Thick 2.2mm Impact-Absorbing Polycarbonate' },
+          { label: 'Neck Finish', val: '55mm Universal Non-Spill Seal Neck' },
+          { label: 'Thermal Resistance', val: 'Withstands 75°C High-Pressure Industrial Sanitization' },
+          { label: 'Traceability', val: 'Batch Laser-Engraved Serialized Barcode & QR Code' }
+        ]
+      },
+      'bottle-custom-hospitality': {
+        id: 'bottle-custom-hospitality',
+        title: 'Custom Private-Label Branded Bottles (300ml & 500ml)',
+        badge: 'Hospitality & Luxury Events',
+        category: 'Water Bottles • Private Label Series',
+        capacity: '300ml / 500ml',
+        price: '₹320',
+        numericPrice: 320,
+        unit: 'Carton',
+        img: 'assets/images/pet-bottles-group.png',
+        desc: 'Bespoke branded packaged drinking water for luxury hotels, fine dining restaurants, corporate summits, car dealerships, and grand weddings with metallic foil or gloss custom label branding.',
+        dedicatedUrl: 'water-bottles.html#bottleCustomHospitality',
+        specs: [
+          { label: 'Minimum Order', val: '10 Cartons (300 Bottles Custom Imprint)' },
+          { label: 'Label Technology', val: 'Waterproof Metallized BOPP with Gold/Silver Foil Accent' },
+          { label: 'Bottle Silhouette', val: 'Designer Premium Ribbed Cylindrical Profile' },
+          { label: 'Turnaround Time', val: '48-Hour Dispatch from Automated Bottling Line' }
+        ]
+      },
+      'pouch-bulk-crate': {
+        id: 'pouch-bulk-crate',
+        title: 'Bulk Event Pouch Crate (200ml x 50 Pouches Master Pack)',
+        badge: 'High-Volume Wholesale',
+        category: 'Water Pouches • Wholesale Logistics',
+        capacity: '10 Litres (50 x 200ml)',
+        price: '₹95',
+        numericPrice: 95,
+        unit: 'Crate',
+        img: 'assets/images/water-pouches.png',
+        desc: 'Heavy-duty transport master crate packed with 50 sterile, leak-tested 200ml water pouches. Specifically designed for disaster relief, community marathons, political rallies, and summer water camps.',
+        dedicatedUrl: 'water-pouches.html#pouchBulkCrate',
+        specs: [
+          { label: 'Bundle Content', val: '50 Sealed 200ml Pouches in Reinforced Master Bag' },
+          { label: 'Film Quality', val: 'Multi-Layer Co-Extruded Food-Grade Polyethylene' },
+          { label: 'Impact Rating', val: 'Drop-Tested from 2.5m Without Burst' },
+          { label: 'Ideal For', val: 'Marathons, Charitable Rallies, Emergency Relief Stocks' }
+        ]
+      },
+      'dispenser-stand-kit': {
+        id: 'dispenser-stand-kit',
+        title: 'Manual Countertop Can Stand & Sanitary Hand Pump Kit',
+        badge: 'Dispenser Accessory',
+        category: 'Accessories • Dispenser Solutions',
+        capacity: 'Fits 10L & 20L Cans',
+        price: '₹250',
+        numericPrice: 250,
+        unit: 'Kit',
+        img: 'assets/images/hero-pure-water-bottle.jpg',
+        desc: 'Heavy-duty stainless steel countertop stand with non-slip rubber feet and food-grade manual siphon hand pump. Easily converts standard 10L or 20L water cans into an instant desktop drinking water station.',
+        dedicatedUrl: 'water-cans.html#dispenserStandKit',
+        specs: [
+          { label: 'Stand Structure', val: 'Heavy-Duty SS Tubular Stand (50kg Weight Capacity)' },
+          { label: 'Pump Mechanism', val: 'Manual Air-Pressure Siphon Hand Pump (BPA-Free)' },
+          { label: 'Protection Cap', val: 'Spout Sanitary Dust-Protective Plug Included' },
+          { label: 'Power Required', val: 'Zero Electricity Required (100% Mechanical Operation)' }
+        ]
       }
     };
 

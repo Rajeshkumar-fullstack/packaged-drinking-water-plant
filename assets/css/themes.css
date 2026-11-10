@@ -220,6 +220,12 @@ html, body, header, nav, footer, .card, .stat-card, .process-card, .dropdown-men
   text-align: right;
 }
 
+[dir="rtl"] .stats-strip .stat-number,
+[dir="rtl"] .stats-strip .stat-label,
+[dir="rtl"] .stats-strip .stat-sublabel {
+  text-align: center;
+}
+
 /* Hero Section in RTL */
 [dir="rtl"] .hero-content {
   text-align: right;

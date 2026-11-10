@@ -57,7 +57,7 @@
 
   <!-- Custom Stylesheets -->
   <link rel="stylesheet" href="assets/css/themes.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=4.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.8">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/hero-animations.css?v=2.5">
@@ -185,6 +185,7 @@
             <a href="products.html" class="nav-link">Products</a>
           </li>
           <li class="nav-item"><a href="quality-reports.html" class="nav-link active">Quality Reports</a></li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
@@ -192,7 +193,6 @@
       <div class="nav-actions">
                 <!-- RTL Direction Toggle Button -->
         <button type="button" class="rtl-toggle-btn" aria-label="Toggle Direction: Right to Left (RTL)" title="Right to Left (RTL)">
-          <i class="bi bi-text-right dir-icon"></i>
           <span class="dir-label">RTL</span>
         </button>
 
@@ -243,6 +243,7 @@
       <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
       <li><a href="products.html" class="mobile-nav-link">Products</a></li>
       <li><a href="quality-reports.html" class="mobile-nav-link active">Quality Reports</a></li>
+      <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
     </ul>
 
@@ -368,15 +369,15 @@
       <div class="container">
         <div class="stats-strip reveal-up">
           <div class="stat-item">
-            <div class="stat-number" data-count="36" data-suffix=" Tests">0 Tests</div>
+            <div class="stat-number" data-count="36" data-suffix=" Tests">0<span class="stat-unit">Tests</span></div>
             <div class="stat-label">Physical & Chemical Assays</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="0" data-suffix=" CFU">0 CFU</div>
+            <div class="stat-number" data-count="0" data-suffix=" CFU">0<span class="stat-unit">CFU</span></div>
             <div class="stat-label">Microbial Pathogen Count</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="100" data-suffix=" PPM">0 PPM</div>
+            <div class="stat-number" data-count="100" data-suffix=" PPM">0<span class="stat-unit">PPM</span></div>
             <div class="stat-label">Optimal Balanced Mineral TDS</div>
           </div>
           <div class="stat-item">
@@ -708,9 +709,12 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom:1.2rem;">
-            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="36" height="36" style="width:36px; height:36px;" decoding="async">
-            <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+          <a href="index.html" class="brand-logo" aria-label="AquaPure Home" style="margin-bottom:1.2rem;">
+            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="40" height="40" style="width:40px; height:40px;" decoding="async">
+            <div class="brand-text">
+              <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+              <span class="brand-tagline">PACKAGED DRINKING WATER</span>
+            </div>
           </a>
           <p style="font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">
             Standard-compliant packaged drinking water processing, laboratory analysis, and verifiable purity benchmarks.
@@ -731,6 +735,7 @@
             <li><a href="about.html"><i class="bi bi-chevron-right"></i> About Us</a></li>
             <li><a href="products.html"><i class="bi bi-chevron-right"></i> All Products</a></li>
             <li><a href="quality-reports.html"><i class="bi bi-chevron-right"></i> Quality Reports</a></li>
+            <li><a href="blog.html"><i class="bi bi-chevron-right"></i> Blog &amp; Insights</a></li>
             <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact Us</a></li>
           </ul>
         </div>
@@ -920,7 +925,7 @@
   <!-- Scripts -->
   <script src="assets/js/theme.js?v=2.0"></script>
   <script src="assets/js/scroll-effects.js"></script>
-  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/animations.js?v=4.8"></script>
   <script src="assets/js/main.js?v=3.1"></script>
 <script src="assets/js/cart.js"></script>
   <script src="assets/js/hero-animations.js" defer></script>

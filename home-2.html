@@ -57,7 +57,7 @@
 
   <!-- Custom Stylesheets -->
   <link rel="stylesheet" href="assets/css/themes.css">
-  <link rel="stylesheet" href="assets/css/style.css?v=4.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=4.8">
   <link rel="stylesheet" href="assets/css/typography.css">
   <link rel="stylesheet" href="assets/css/animations.css">
   <link rel="stylesheet" href="assets/css/hero-animations.css?v=2.5">
@@ -150,6 +150,7 @@
           <li class="nav-item">
             <a href="quality-reports.html" class="nav-link">Quality Reports</a>
           </li>
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
           <li class="nav-item">
             <a href="contact.html" class="nav-link">Contact Us</a>
           </li>
@@ -160,7 +161,6 @@
       <div class="nav-actions">
                         <!-- RTL Direction Toggle Button -->
         <button type="button" class="rtl-toggle-btn" aria-label="Toggle Direction: Right to Left (RTL)" title="Right to Left (RTL)">
-          <i class="bi bi-text-right dir-icon"></i>
           <span class="dir-label">RTL</span>
         </button>
 
@@ -214,6 +214,7 @@
       <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
       <li><a href="products.html" class="mobile-nav-link">Products</a></li>
       <li><a href="quality-reports.html" class="mobile-nav-link">Quality Reports</a></li>
+      <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
       <li><a href="contact.html" class="mobile-nav-link">Contact Us</a></li>
     </ul>
 
@@ -359,15 +360,15 @@
       <div class="container">
         <div class="stats-strip reveal-up">
           <div class="stat-item">
-            <div class="stat-number" data-count="250000" data-suffix=" LPD">0 LPD</div>
+            <div class="stat-number" data-count="250000" data-suffix=" LPD">0<span class="stat-unit">LPD</span></div>
             <div class="stat-label">Continuous RO Processing Capacity</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="120" data-suffix=" BPM">0 BPM</div>
+            <div class="stat-number" data-count="120" data-suffix=" BPM">0<span class="stat-unit">BPM</span></div>
             <div class="stat-label">Automated Cleanroom Bottling Speed</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" data-count="18" data-suffix=" Bar">0 Bar</div>
+            <div class="stat-number" data-count="18" data-suffix=" Bar">0<span class="stat-unit">Bar</span></div>
             <div class="stat-label">TFC Membrane Separation Pressure</div>
           </div>
           <div class="stat-item">
@@ -575,9 +576,12 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom:1.2rem;">
-            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="36" height="36" style="width:36px; height:36px;" decoding="async">
-            <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+          <a href="index.html" class="brand-logo" aria-label="AquaPure Home" style="margin-bottom:1.2rem;">
+            <img src="assets/images/logo-icon.svg" alt="AquaPure Logo" class="brand-logo-emblem" width="40" height="40" style="width:40px; height:40px;" decoding="async">
+            <div class="brand-text">
+              <span class="brand-name" style="font-size:1.25rem;">AQUA<span>PURE</span></span>
+              <span class="brand-tagline">PACKAGED DRINKING WATER</span>
+            </div>
           </a>
           <p style="font-size:0.9rem; line-height:1.6; margin-bottom:1.5rem;">
             AquaPure Industrial Water Facility specializes in high-throughput purification, sanitary bottling systems, and institutional wholesale distribution.
@@ -598,6 +602,7 @@
             <li><a href="about.html"><i class="bi bi-chevron-right"></i> Engineering Capabilities</a></li>
             <li><a href="products.html"><i class="bi bi-chevron-right"></i> Complete Catalogue</a></li>
             <li><a href="quality-reports.html"><i class="bi bi-chevron-right"></i> Laboratory Test Standards</a></li>
+            <li><a href="blog.html"><i class="bi bi-chevron-right"></i> Blog &amp; Insights</a></li>
             <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact Plant Desk</a></li>
           </ul>
         </div>
@@ -699,7 +704,7 @@
   <!-- Scripts -->
   <script src="assets/js/theme.js?v=2.0"></script>
   <script src="assets/js/scroll-effects.js"></script>
-  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/animations.js?v=4.8"></script>
   <script src="assets/js/main.js?v=3.2"></script>
 <script src="assets/js/cart.js"></script>
   <script src="assets/js/hero-animations.js" defer></script>

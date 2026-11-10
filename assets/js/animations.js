@@ -217,10 +217,18 @@
     const counterElements = document.querySelectorAll('.stat-number[data-count]');
     if (!counterElements.length) return;
 
+    function formatStatHTML(count, prefix, suffix) {
+      if (!suffix) return `${prefix}${count.toLocaleString('en-US')}`;
+      if (/[a-zA-Z]/.test(suffix)) {
+        return `${prefix}${count.toLocaleString('en-US')}<span class="stat-unit">${suffix.trim()}</span>`;
+      }
+      return `${prefix}${count.toLocaleString('en-US')}${suffix}`;
+    }
+
     counterElements.forEach(el => {
       const prefix = el.getAttribute('data-prefix') || '';
       const suffix = el.getAttribute('data-suffix') || '';
-      el.textContent = `${prefix}0${suffix}`;
+      el.innerHTML = formatStatHTML(0, prefix, suffix);
     });
 
     const activeAnimations = new Map();
@@ -244,18 +252,18 @@
         const easeOutProgress = 1 - Math.pow(1 - progress, 4);
         const currentCount = Math.floor(easeOutProgress * targetValue);
 
-        el.textContent = `${prefix}${currentCount.toLocaleString('en-US')}${suffix}`;
+        el.innerHTML = formatStatHTML(currentCount, prefix, suffix);
 
         if (progress < 1) {
           activeAnimations.set(el, requestAnimationFrame(updateCounter));
         } else {
-          el.textContent = `${prefix}${targetValue.toLocaleString('en-US')}${suffix}`;
+          el.innerHTML = formatStatHTML(targetValue, prefix, suffix);
           activeAnimations.delete(el);
         }
       }
 
       if (prefersReducedMotion) {
-        el.textContent = `${prefix}${targetValue.toLocaleString('en-US')}${suffix}`;
+        el.innerHTML = formatStatHTML(targetValue, prefix, suffix);
       } else {
         activeAnimations.set(el, requestAnimationFrame(updateCounter));
       }
